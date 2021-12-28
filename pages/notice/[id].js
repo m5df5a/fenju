@@ -20,7 +20,6 @@ export async function getServerSideProps({params}) {
 }
 
 export default function notice({timeline, main_post}) {
-
   return (
     <div className={styles.container}>
       {timeline.ancestors.map(post => displayPost(post))}
