@@ -10,14 +10,9 @@ body {
 
 a {
   color: inherit;
-  /* text-decoration: none; */
 }
 
 img, video {
   width: 270px;
   padding: 3px;
 }
-
-/* * {
-  box-sizing: border-box;
-} */
