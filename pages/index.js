@@ -19,6 +19,7 @@ export default function Home({timeline}) {
   return (
     <div className={styles.container}>
       {timeline.map(post => displayPost(post))}
+      <script type="text/javascript" src="vanilla-tilt.min.js"></script>
     </div>
   )
 }

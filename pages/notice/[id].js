@@ -26,6 +26,7 @@ export default function notice({timeline, main_post}) {
       {timeline.ancestors.map(post => displayPost(post))}
       {displayPost(main_post, true)}
       {timeline.descendants.map(post => displayPost(post))}
+      <script type="text/javascript" src="../vanilla-tilt.min.js"></script>
     </div>
   )
 }
