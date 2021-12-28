@@ -12,6 +12,10 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: #a75ae6;
+}
+
 img, video {
   width: 270px;
   padding: 3px;
