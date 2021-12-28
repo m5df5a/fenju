@@ -133,3 +133,7 @@
   z-index: 1;
   background-color: #b100ae;
 }
+
+.username {
+  font-weight: bold;
+}

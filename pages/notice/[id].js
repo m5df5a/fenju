@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-key */
 import styles from '../../styles/Home.module.css'
 import fs from "fs"
+import {displayPost} from "../hilfen"
 
 export async function getServerSideProps({params}) {
   const token = fs.readFileSync("token.txt", "utf8");
@@ -19,41 +20,12 @@ export async function getServerSideProps({params}) {
 }
 
 export default function notice({timeline, main_post}) {
-  function make(post) {
-    let _style = {};
-    if (post.id == main_post.id) {
-      _style = {"background-color": "#c1117c"};
-    }
-    let media = <></>;
-    if (post.media_attachments[0]?.pleroma.mime_type.includes("image")) {
-      media = (
-        <a href={post.media_attachments[0]?.url} target="_blank">
-          <img src={post.media_attachments[0]?.preview_url}/>
-        </a>
-      );
-    } else if (post.media_attachments[0]?.pleroma.mime_type.includes("video")) {
-      media = (
-        <video controls>
-          <source src={post.media_attachments[0]?.url}/>
-        </video>
-      );
-    }
 
-    return (
-      <div className={styles.post} onClick={() => location.href = `http://127.0.0.1:3000/notice/${post.id}`} style={_style}>
-        <div className="username"><b><a href={post.account.url}>{post.account.acct}</a></b></div>
-        <div className="time">{post.created_at}</div>
-        <br/>
-        {media}
-        <div className="com" dangerouslySetInnerHTML={{ __html: post.content }}></div>
-        <div>{post.reblogged}</div>
-      </div>
-  )}
   return (
     <div className={styles.container}>
-      {timeline.ancestors.map(post => make(post))}
-      {make(main_post)}
-      {timeline.descendants.map(post => make(post))}
+      {timeline.ancestors.map(post => displayPost(post))}
+      {displayPost(main_post, true)}
+      {timeline.descendants.map(post => displayPost(post))}
     </div>
   )
 }
