@@ -32,8 +32,8 @@ export function displayPost(post, mainPost=false) {
   }
 
   return (
-    <div className={styles.outerpost} data-tilt>
-      <div className={styles.post} style={_style}>
+    <div className={styles.outerpost}>
+      <div className={styles.post} style={_style} data-tilt data-tilt-max="10">
         <div className={styles.userinfo} onClick={() => location.href = `${domain}/notice/${post.id}`}>
           <img className={styles.pfp} src={post.account.avatar}/>
           <div className={styles.username}>{post.account.display_name} <a href={post.account.url}>{"@"+post.account.acct}</a></div>
