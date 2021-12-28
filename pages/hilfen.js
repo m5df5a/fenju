@@ -35,13 +35,15 @@ export function displayPost(post, mainPost=false) {
   }
 
   return (
-    <div className={styles.outerpost}>
+    <div className={styles.outerpost} id={post.id}>
       <div className={styles.post} style={_style} data-tilt data-tilt-max="10">
-        <div className={styles.userinfo} onClick={() => location.href = `${domain}/notice/${post.id}`}>
+        <div className={styles.userinfo}>
           {boosted}
           <img className={styles.pfp} src={post.account.avatar}/>
           <div className={styles.username}>{post.account.display_name} <a href={post.account.url}>{"@"+post.account.acct}</a></div>
           <div className={styles.time}>{/\d{2}:\d{2}:\d{2}/.exec(post.created_at)[0]}</div>
+          <div>Post id: <a href={`${domain}/notice/${post.id}`}>{post.id}</a></div>
+          <div>In reply to: <a href={`${domain}/notice/${post.in_reply_to_id}`}>{post.in_reply_to_id}</a></div>
         </div>
         <br/>
         <div className={styles.com}>
