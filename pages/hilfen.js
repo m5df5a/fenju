@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css'
-const domain = "http://127.0.0.1:3000"
+export const domain = "http://127.0.0.1:3000"
 
 export function displayPost(post, mainPost=false) {
   let boosted = <></>;
