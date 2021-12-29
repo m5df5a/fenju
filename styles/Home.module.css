@@ -146,7 +146,7 @@
   border-radius: 10px;
 }
 
-.userinfo, .bottom_post {
+.userinfo {
   background-color: #363d58;
   border-radius: 10px;
   padding: 3px;
@@ -156,11 +156,13 @@
   background-color: #363d58;
   position: absolute;
   bottom: 0px;
-  width: 100%;
-  flex-flow: row;
+  width: 21rem;
+  padding: 3px;
+  margin: -3px;
 }
 
 .status_actions {
   float: left;
   padding-left: 2rem;
+  margin-bottom: 3px;
 }
